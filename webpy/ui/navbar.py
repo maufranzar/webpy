@@ -1,5 +1,6 @@
 import reflex as rx
 
+
 def navbar_link(text: str, url: str) -> rx.Component:
     return rx.link(
         rx.text(text, size="4", weight="medium"), href=url
@@ -18,14 +19,14 @@ def navbar() -> rx.Component:
                         border_radius="25%",
                     ),
                     rx.heading(
-                        "Reflex", size="7", weight="bold"
+                        "MAUFRANZAR", size="7", weight="bold"
                     ),
                     align_items="center",
                 ),
                 rx.hstack(
                     navbar_link("Home", "/#"),
                     navbar_link("About", "/#"),
-                    navbar_link("Pricing", "/#"),
+                    navbar_link("Proyects", "/#"),
                     navbar_link("Contact", "/#"),
                     spacing="5",
                 ),
@@ -41,6 +42,7 @@ def navbar() -> rx.Component:
                 ),
                 justify="between",
                 align_items="center",
+                id="my-navbar-hstack-desktop",        
             ),
         ),
         rx.mobile_and_tablet(
@@ -78,8 +80,9 @@ def navbar() -> rx.Component:
         ),
         bg=rx.color("accent", 3),
         padding="1em",
-        #position="fixed",
-        top="0px",
-        z_index="5",
+        # position="fixed",
+        # top="0px",
+        # z_index="5",
         width="100%",
+        id="my-navbar",
     )
