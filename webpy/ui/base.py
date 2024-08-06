@@ -1,5 +1,6 @@
 import reflex as rx
-from .navbar import navbar
+
+from . navbar import navbar
 
 
 def base_page(child:rx.Component , hide_navbar=False,*args, **kwargs) -> rx.Component:

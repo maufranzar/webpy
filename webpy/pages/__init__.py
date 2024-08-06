@@ -1,7 +1,7 @@
 from .about import about_page
-from .resume import resume_page
+from .contact import contact_page
 
 __all__ = [
     'about_page',
-    'resume_page',
+    'contact_page',
 ]

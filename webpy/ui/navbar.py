@@ -1,5 +1,7 @@
 import reflex as rx
 
+from .. import navigation
+
 
 def navbar_link(text: str, url: str) -> rx.Component:
     return rx.link(
@@ -12,23 +14,30 @@ def navbar() -> rx.Component:
         rx.desktop_only(
             rx.hstack(
                 rx.hstack(
-                    rx.image(
-                        src="/logo.jpg",
+                    rx.link(
+                        rx.image(
+                        src="/img/logo_.ico",
                         width="2.25em",
                         height="auto",
                         border_radius="25%",
+                        ),
+                    href="/",                    
                     ),
-                    rx.heading(
-                        "MAUFRANZAR", size="7", weight="bold"
+                    rx.link(
+                        rx.heading(
+                        "MAUFRANZAR", 
+                        size="7", 
+                        weight="bold",
                     ),
+                    href=navigation.routes.HOME_ROUTE,
                     align_items="center",
+                    )
                 ),
                 rx.hstack(
-                    navbar_link("Home", "/#"),
-                    navbar_link("About", "/#"),
-                    navbar_link("Proyects", "/#"),
-                    navbar_link("Contact", "/#"),
-                    spacing="5",
+                    navbar_link("Home", navigation.routes.HOME_ROUTE),
+                    navbar_link("About", navigation.routes.ABOUT_ROUTE),
+                    navbar_link("Contact", navigation.routes.CONTACT_ROUTE),
+                    spacing="8",
                 ),
                 rx.hstack(
                     rx.button(
@@ -49,13 +58,18 @@ def navbar() -> rx.Component:
             rx.hstack(
                 rx.hstack(
                     rx.image(
-                        src="/logo.jpg",
+                        src="/img/logo_.ico",
                         width="2em",
                         height="auto",
                         border_radius="25%",
                     ),
-                    rx.heading(
-                        "Reflex", size="6", weight="bold"
+                    rx.link(
+                        rx.heading(
+                            "MAUFRANZAR", 
+                            size="6", 
+                            weight="bold",
+                        ),
+                        href=navigation.routes.HOME_ROUTE,
                     ),
                     align_items="center",
                 ),
@@ -64,10 +78,9 @@ def navbar() -> rx.Component:
                         rx.icon("menu", size=30)
                     ),
                     rx.menu.content(
-                        rx.menu.item("Home"),
-                        rx.menu.item("About"),
-                        rx.menu.item("Pricing"),
-                        rx.menu.item("Contact"),
+                        rx.menu.item("Home",on_click=navigation.NavState.to_home_page),
+                        rx.menu.item("About",on_click=navigation.NavState.to_about_page),
+                        rx.menu.item("Contact",on_click=navigation.NavState.to_contact_page),
                         rx.menu.separator(),
                         rx.menu.item("Log in"),
                         rx.menu.item("Sign up"),

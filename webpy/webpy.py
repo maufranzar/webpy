@@ -1,9 +1,8 @@
 import reflex as rx
 
-from rxconfig import config
-from .ui.base import base_page
+from . ui.base import base_page
 
-from . import pages
+from . import pages, navigation
 
 class State(rx.State):
     """The app state."""
@@ -14,6 +13,7 @@ class State(rx.State):
         
     def did_click(self):
         print("Clicked!!")
+        return rx.redirect(navigation.routes.HOME_ROUTE)
       
 
 
@@ -21,20 +21,13 @@ def index() -> rx.Component:
     # Welcome Page (Index)
     my_child = rx.vstack(
             rx.heading(State.label,size="9"),
-            rx.text(
-                "Get started by editing ",
-                rx.code(f"{config.app_name}/{config.app_name}.py"),
-                size="5",
-            ),
-            rx.input(
-                default_value=State.label,
-                on_click=State.did_click,
-                on_change=State.handle_title_input_change,
+            rx.link(
+                rx.button("About"),
+                href=navigation.routes.ABOUT_ROUTE,
             ),
             rx.link(
-                rx.button("Check out our docs!"),
-                href="https://reflex.dev/docs/getting-started/introduction/",
-                is_external=True,
+                rx.button("contact"),
+                href=navigation.routes.CONTACT_ROUTE,
             ),
             spacing="5",
             justify="center",
@@ -48,6 +41,11 @@ def index() -> rx.Component:
 
 
 app = rx.App()
-app.add_page(index)
-app.add_page(pages.about_page, route='/about')
-app.add_page(pages.resume_page, route='/resume')
+app.add_page(
+    index,
+    title="maufranzar",
+    description="web personal de maufranzar",
+    image="/img/logo_.ico",
+)
+app.add_page(pages.about_page, route=navigation.routes.ABOUT_ROUTE)
+app.add_page(pages.contact_page, route=navigation.routes.CONTACT_ROUTE)
