@@ -22,7 +22,6 @@ def base_page(child:rx.Component , hide_navbar=False,*args, **kwargs) -> rx.Comp
             id="my-content-area",
         ),
         rx.logo(),
-        rx.color_mode.button(position="bottom-left"),
         padding="10em",
         id="my-base-container",
     )

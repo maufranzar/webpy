@@ -5,7 +5,7 @@ from .. import navigation
 
 def navbar_link(text: str, url: str) -> rx.Component:
     return rx.link(
-        rx.text(text, size="4", weight="medium"), href=url
+        rx.text(text, size="5", weight="medium"), href=url
     )
 
 
@@ -14,16 +14,15 @@ def navbar() -> rx.Component:
         rx.desktop_only(
             rx.hstack(
                 rx.hstack(
-                    rx.link(
-                        rx.image(
-                        src="/img/logo_.ico",
-                        width="2.25em",
-                        height="auto",
-                        border_radius="25%",
-                        ),
-                    href="/",                    
+                    rx.color_mode.button(
+                        size="2",
+                        variant="outline",
+                        radius="full",
+                        high_contrast=True,
+                        color=rx.color_mode_cond(light="dark", dark="light"),
+                        background_color=rx.color_mode_cond(light="light", dark="dark"),
                     ),
-                    rx.link(
+                    rx.link(                
                         rx.heading(
                         "MAUFRANZAR", 
                         size="7", 
@@ -31,7 +30,8 @@ def navbar() -> rx.Component:
                     ),
                     href=navigation.routes.HOME_ROUTE,
                     align_items="center",
-                    )
+                    ),
+                    spacing="5",
                 ),
                 rx.hstack(
                     navbar_link("Home", navigation.routes.HOME_ROUTE),
@@ -57,11 +57,13 @@ def navbar() -> rx.Component:
         rx.mobile_and_tablet(
             rx.hstack(
                 rx.hstack(
-                    rx.image(
-                        src="/img/logo_.ico",
-                        width="2em",
-                        height="auto",
-                        border_radius="25%",
+                    rx.color_mode.button(
+                        size="2",
+                        variant="outline",
+                        radius="full",
+                        high_contrast=True,
+                        color=rx.color_mode_cond(light="dark", dark="light"),
+                        background_color=rx.color_mode_cond(light="light", dark="dark"),
                     ),
                     rx.link(
                         rx.heading(
@@ -93,7 +95,7 @@ def navbar() -> rx.Component:
         ),
         bg=rx.color("accent", 3),
         padding="1em",
-        # position="fixed",
+        position="fixed",
         # top="0px",
         # z_index="5",
         width="100%",
