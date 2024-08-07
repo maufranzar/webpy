@@ -3,6 +3,13 @@
 import reflex as rx
 
 from .components.base import base_page
+from . import routes
+from .pages import (
+    profile_page,
+    projects_page,
+    contact_page,
+)
+
 
 class State(rx.State):
     """The app state."""
@@ -18,6 +25,28 @@ def index() -> rx.Component:
 
 
 app = rx.App()
-app.add_page(index)
 
-app.ad_page()
+app.add_page(
+    index,
+    title="maufranzar",
+    description="web personal de maufranzar",
+    image="/img/logo.ico"
+)
+
+app.add_page(
+    profile_page,
+    route=routes.urls.PROFILE,
+    title="Perfil",
+)
+
+app.add_page(
+    projects_page,
+    route=routes.urls.PROJECTS,
+    title="Proyectos",
+)
+
+app.add_page(
+    contact_page,
+    route=routes.urls.CONTACT,
+    title="Contacto",
+)
