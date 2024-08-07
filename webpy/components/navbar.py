@@ -6,6 +6,9 @@ def navbar_link(text:str, url:str) -> rx.Component:
     return rx.link(
         rx.text(text),
         href=url,
+        size="5",
+        underline="none",
+        weight="medium"
     )
     
 def navbar() -> rx.Component:
@@ -27,9 +30,10 @@ def navbar() -> rx.Component:
                             rx.text("fran", as_="span",size="7"),
                             rx.text("zar", as_="span",size="7"),
                             href=routes.urls.HOME,
+                            underline="none",
                         ),
                     ),
-                    spacing="4",
+                    spacing="5",
                 ),
                 rx.spacer(),
                 rx.flex(
@@ -85,12 +89,14 @@ def navbar() -> rx.Component:
                         rx.icon("menu", size=30)
                     ),
                     rx.menu.content(
-                        rx.menu.item("Home", on_click=routes.state.NavState.to_home),
-                        rx.menu.item("Profile", on_click=routes.state.NavState.to_profile),
-                        rx.menu.item("Projects", on_click=routes.state.NavState.to_projects),
-                        rx.menu.item("Contact", on_click=routes.state.NavState.to_contact),
+                        rx.menu.item("Home",on_click=routes.state.NavState.to_home),
+                        rx.menu.item("Profile",on_click=routes.state.NavState.to_profile),
+                        rx.menu.item("Projects",on_click=routes.state.NavState.to_projects),
+                        rx.menu.item("Contact",on_click=routes.state.NavState.to_contact),
                         rx.separator(),
-                        rx.menu.item("Boton", on_click=routes.state.NavState.to_profile),
+                        rx.menu.item("Boton",on_click=routes.state.NavState.to_profile),
+                        size="2",
+                        align="center"
                     ),
                     justify="end",
                 ),
@@ -100,7 +106,7 @@ def navbar() -> rx.Component:
         ),
         bg=rx.color("accent",3),
         padding="1em",
-        position="sticky",
+        # position="sticky",
         # top="0px",
         # z_index="5",
         width="100%",
