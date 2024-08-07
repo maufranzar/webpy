@@ -13,3 +13,6 @@ class NavState(rx.State):
     
     def to_profile(self):
         return rx.redirect(urls.PROFILE)
+    
+    def to_projects(self):
+        return rx.redirect(urls.PROJECTS)

@@ -17,6 +17,6 @@ def base_layout_componen(child, *args, **kwargs) -> rx.Component:
 def base_page(child:rx.Component, *args, **kwargs) -> rx.Component:
     if not isinstance(child, rx. Component):
         child = rx.heading("Error: Invalid Child", size="1")
-    return rx.container(
+    return rx.fragment(
         base_layout_componen(child, *args, **kwargs),
     )
