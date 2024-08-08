@@ -39,12 +39,12 @@ def contact_form() -> rx.Component:
                 ),
                 rx.vstack(
                     rx.heading(
-                        "Envia un mensaje",
+                        "Envia un mensaje a",
                         size="4",
                         weight="bold",
                     ),
                     rx.text(
-                        "Completa los datos para contactarme",
+                        "contact@maufranzar.com",
                         size="2",
                     ),
                     spacing="1",
@@ -142,7 +142,7 @@ def contact_form() -> rx.Component:
 def contact_page() -> rx.Component:
 
     my_child = rx.vstack(
-            rx.heading("CONTACT",size="9"),
+            rx.heading("Escribeme!",size="7"),
             contact_form(),
             spacing="5",
             justify="center",

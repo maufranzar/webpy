@@ -4,19 +4,39 @@ from ..components.base import base_page
 from .. import routes
 
 
+def projects_content() -> rx.Component:
+    return rx.card(
+        rx.flex(
+            rx.heading(
+                "Profile",
+                size="4",
+                weight="bold",
+            ),
+            rx.text(
+                "Projects!!",
+                size="2",
+            ),
+            spacing="1",
+            height="100%",
+        ),
+        padding="2",
+        width="100%",
+        height="100%",
+    )
+
+
+
+@rx.page(route=routes.urls.PROJECTS)
 def projects_page() -> rx.Component:
-    child = rx.vstack(
-            rx.heading("projects"),
-            rx.text("This is the projects page."),
-            rx.text("This is the projects page."),
-            rx.text("This is the projects page."),
-            rx.text("This is the projects page."),
-            rx.text("This is the projects page."),
-            rx.link(rx.button("Home",on_click=routes.urls.HOME)),
-            spacing="5",
-            justify="center",
-            align="center",
-            min_height="85vh",
-            )
-    return base_page(child)          
+
+    my_child = rx.vstack(
+        rx.heading("profile!",size="7"),
+        projects_content(),
+        spacing="5",
+        justify="center",
+        align="center",
+        min_height="85vh",
+        id="my-child",
+        )
+    return base_page(my_child)      
     
