@@ -32,7 +32,7 @@ def contact_form() -> rx.Component:
         rx.flex(
             rx.hstack(
                 rx.badge(
-                    rx.icon(tag="mail-plus", size=32),
+                    rx.icon(tag="mail-plus", size=40),
                     color_scheme="blue",
                     radius="full",
                     padding="0.65rem",
@@ -40,14 +40,14 @@ def contact_form() -> rx.Component:
                 rx.vstack(
                     rx.heading(
                         "Envia un mensaje a",
-                        size="4",
+                        size="5",
                         weight="bold",
                     ),
                     rx.text(
-                        "contact@maufranzar.com",
-                        size="2",
+                        "📨 contact@maufranzar.com",
+                        size="3",
                     ),
-                    spacing="1",
+                    spacing="2",
                     height="100%",
                 ),
                 height="100%",
@@ -142,7 +142,6 @@ def contact_form() -> rx.Component:
 def contact_page() -> rx.Component:
 
     my_child = rx.vstack(
-            rx.heading("Escribeme!",size="7"),
             contact_form(),
             spacing="5",
             justify="center",

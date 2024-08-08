@@ -5,15 +5,7 @@ from .. import routes
 
 import reflex as rx
 
-def info_text(title:str, body:str) -> rx.Component:
-    return rx.box(
-        rx.text(title,as_="span"),
-        f" {body}",
-        align="center",
-        justify="center",
-    )
     
-
 def link_icon(image:str, url:str) -> rx.Component:
     return rx.link(
         rx.icon(
@@ -24,34 +16,7 @@ def link_icon(image:str, url:str) -> rx.Component:
         is_external=True
     )
     
-    
-    
-def link_button(title:str, image:str ,body:str, url:str) -> rx.Component:
-    return rx.link(
-        rx.button(
-            rx.hstack(
-                rx.image(
-                    src=image,
-                    width="50px",
-                    height="50px",
-                    margin="5px",
-                    alt = title
-                ),
-                rx.vstack(
-                    rx.heading(title),
-                    rx.text(body),
-                    align_items="start",
-                    justify="center",
-                ),
-                width="100%",
-            ),
-            # 
-        ),
-        href=url,
-        is_external=True,
-        width="100%"
-    )
-
+       
 def profile_content() -> rx.Component:
     return rx.vstack(
         rx.hstack(
@@ -63,8 +28,12 @@ def profile_content() -> rx.Component:
                 size="7",
             ),
             rx.vstack(
-                rx.heading("Mauricio Franco", size="6"),
-                rx.text("@maufranzar"),
+                rx.heading("Mauricio Franco Salazar", size="6"),
+                rx.badge(
+                    rx.icon("fingerprint", size=15),
+                    rx.text("maufranzar", size="2"),
+                    spacing="1"    
+                ),
                 rx.hstack(
                     rx.flex(
                         link_icon(
@@ -86,23 +55,68 @@ def profile_content() -> rx.Component:
                         spacing="7",
                     )
                 )
-            )
-        )
+            ),
+            spacing="6",
+        ),
+        rx.divider(
+            height="2px",
+            border_radius="2px"
+        ),
+        spacing="4",
     )
     
-
-
+def profile_description() -> rx.Component:
+    return rx.container(
+        rx.accordion.root(
+            rx.accordion.item(
+                header=rx.heading("Perfil", size="4"),
+                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            ),
+            rx.accordion.item(
+                header=rx.heading("Formación", size="4"),
+                content=rx.card(
+                    rx.list(
+                        rx.list.item(
+                        rx.icon("school",size=20,align="center"),
+                        "Universidad Ricardo Palma: Ingeniería Electrónica"
+                        ),
+                        rx.list.item(
+                        rx.icon("school",size=20,align="center"),
+                        "Universidad Ricardo Palma: Ingeniería Electrónica"
+                        ),
+                        rx.list.item(
+                        rx.icon("school",size=20,align="center"),
+                        "Universidad Ricardo Palma: Ingeniería Electrónica"
+                        )
+                    )
+                ),
+                justify="vertical",
+            ),
+            rx.accordion.item(
+                header=rx.heading("Experiencia", size="4"),
+                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            ),
+            collapse=True,
+            orientation="vertical",
+            width="100%",
+            variant="outline",
+            radius="medium",
+        )
+    )
 
 @rx.page(route=routes.urls.PROFILE)
 def profile_page() -> rx.Component:
 
-    my_child = rx.vstack(
+    my_child = rx.container(
+        rx.vstack(
         profile_content(),
+        profile_description(),
         spacing="5",
-        justify="center",
+        #justify="center",
         align="center",
         min_height="85vh",
         id="my-child",
         )
+    )
     return base_page(my_child)      
     

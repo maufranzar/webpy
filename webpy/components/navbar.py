@@ -106,9 +106,7 @@ def navbar() -> rx.Component:
         ),
         bg=rx.color("accent",3),
         padding="0.8em",
-        position="fixed",
-        top="0px",
-        z_index="999",
+        position="sticky",
         width="100%",
         id="navbar",
     )
