@@ -107,6 +107,7 @@ def profile_description() -> rx.Component:
                         width="100%",
                     ),
                     orientation="vertical",
+                    spacing="4",
                 ),
                 width="100%",
                 justify="vertical",

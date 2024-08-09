@@ -17,18 +17,19 @@ def navbar() -> rx.Component:
             rx.hstack(
                 rx.hstack(
                     rx.color_mode.button(
-                        size="2",
+                        size="3",
                         variant="outline",
                         radius="full",
                         high_contrast=True,
                         color=rx.color_mode_cond(light="dark", dark="light"),
                         background_color=rx.color_mode_cond(light="light", dark="dark"),
+                        
                     ),
                     rx.box(
                         rx.link(
-                            rx.text("mau", as_="span",size="7"),
-                            rx.text("fran", as_="span",size="7"),
-                            rx.text("zar", as_="span",size="7"),
+                            rx.text("mau", as_="span",size="8",weight="bold"),
+                            rx.text("fran", as_="span",size="8",weight="bold"),
+                            rx.text("zar", as_="span",size="8",weight="bold"),
                             href=routes.urls.HOME,
                             underline="none",
                         ),
@@ -49,11 +50,10 @@ def navbar() -> rx.Component:
                 rx.hstack(
                     rx.link(
                         rx.button(
-                            "boton",
-                            size="3",
+                            "🔒",
+                            size="4",
                             variant="outline",
                         ),
-                        href=routes.urls.PROFILE,
                     ),
                     spacing="4",
                     justify="end",
@@ -75,9 +75,9 @@ def navbar() -> rx.Component:
                     ),
                     rx.box(
                         rx.link(
-                            rx.text("mau", as_="span",size="7"),
-                            rx.text("fran", as_="span",size="7"),
-                            rx.text("zar", as_="span",size="7"),
+                            rx.text("mau", as_="span",size="7",weight="bold"),
+                            rx.text("fran", as_="span",size="7",weight="bold"),
+                            rx.text("zar", as_="span",size="7",weight="bold"),
                             href=routes.urls.HOME,
                         ),
                     ),
@@ -105,7 +105,7 @@ def navbar() -> rx.Component:
             ),    
         ),
         bg=rx.color("accent",3),
-        padding="0.8em",
+        padding="0.5em",
         position="sticky",
         width="100%",
         id="navbar",
