@@ -4,6 +4,7 @@ from ..components.base import base_page
 from .. import routes
 
 
+
 def projects_content() -> rx.Component:
     return rx.card(
         rx.flex(
@@ -30,7 +31,7 @@ def projects_content() -> rx.Component:
 def projects_page() -> rx.Component:
 
     my_child = rx.vstack(
-        rx.heading("profile!",size="7"),
+        rx.heading("EN CONSTRUCCION!",size="7"),
         projects_content(),
         spacing="5",
         justify="center",

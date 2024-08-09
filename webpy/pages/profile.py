@@ -25,7 +25,7 @@ def profile_content() -> rx.Component:
                 fallback="MFS",
                 variant="soft",
                 radius="full",
-                size="7",
+                size="8",
             ),
             rx.vstack(
                 rx.heading("Mauricio Franco Salazar", size="6"),
@@ -70,30 +70,52 @@ def profile_description() -> rx.Component:
         rx.accordion.root(
             rx.accordion.item(
                 header=rx.heading("Perfil", size="4"),
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            ),
+                content=rx.container(
+                    rx.text("Soy Bachiller en Ingeniería Electrónica, me apaciona la tecnogía y el poder que tiene para mejorar nuestras vidas. Sin embargo, el acceso a esta no es igual para todos, me movita poder contribuir a reducir tal brecha.",align="justify"),
+                    rx.text("Actualmente estoy enfocado en tecnologías emergentes el IoT, Data Analysis e Inteligencia Artificial. Me caracteriza la proactividad, la capacidad de adaptación y la comunicación, estoy familiarizado con entornos de desarrollo en Linux, con el uso de frameworks como; Docker, Git, Anaconda, tengo experiencia programando en Python con librerías como Numpy, Scipy, Pandas, Seaborn, Scikit-learn, Pytorch, FastAPI",align="justify"),
+                    justify="between",
+                    spacing="4",
+                    ),
+                ),
             rx.accordion.item(
                 header=rx.heading("Formación", size="4"),
-                content=rx.card(
-                    rx.list(
-                        rx.list.item(
-                        rx.icon("school",size=20,align="center"),
-                        "Universidad Ricardo Palma: Ingeniería Electrónica"
+                content=rx.vstack(
+                    rx.card(
+                        rx.flex(
+                            rx.box(
+                                rx.heading("Universidad Ricardo Palma",size="5"),
+                                rx.text("Ingeniería Electrónica",size="3"),
+                            ),
+                            spacing="2",
+                            width="100%",
                         ),
-                        rx.list.item(
-                        rx.icon("school",size=20,align="center"),
-                        "Universidad Ricardo Palma: Ingeniería Electrónica"
+                        as_child=True,
+                        width="100%",
+                    ),
+                    rx.card(
+                        rx.flex(
+                            rx.box(
+                                rx.heading("Platzi",size="5"),
+                                rx.text("Fundamentos de Servidores Linux",size="3"),
+                                rx.text("Análisis y Manipulacion de Datos con Python",size="3"),
+                                rx.text("Machine Learning con Python",size="3"),
+                            ),
+                            spacing="2",
+                            width="100%",
                         ),
-                        rx.list.item(
-                        rx.icon("school",size=20,align="center"),
-                        "Universidad Ricardo Palma: Ingeniería Electrónica"
-                        )
-                    )
+                        as_child=True,
+                        width="100%",
+                    ),
+                    orientation="vertical",
                 ),
                 justify="vertical",
             ),
             rx.accordion.item(
                 header=rx.heading("Experiencia", size="4"),
+                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            ),
+            rx.accordion.item(
+                header=rx.heading("Certificaciones", size="4"),
                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             ),
             collapse=True,
