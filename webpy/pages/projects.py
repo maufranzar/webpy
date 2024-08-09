@@ -6,9 +6,9 @@ from .. import routes
 @rx.page(route=routes.urls.PROJECTS)
 def projects_page() -> rx.Component:
     my_child = rx.vstack(
-            rx.heading("ABOUT",size="9"),
+            rx.heading("PROYECTOS",size="9"),
             rx.text(
-                "ABOUT... ",
+                "En contruccion... ",
             ),
             rx.link(
                 rx.button("HOME"),

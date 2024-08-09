@@ -9,16 +9,14 @@ from .pages import profile_page, projects_page, contact_page
 def index() -> rx.Component:
     # Welcome Page (Index)
     my_child = rx.vstack(
+            rx.heading("HOME PAGE",size="9"),
+            rx.text("BIENVENID@!  "),
             rx.link(
-                rx.button("PROFILE"),
-            ),
-            rx.link(
-                rx.button("contact"),
+                rx.button("HOME"),
             ),
             spacing="5",
             justify="center",
             align="center",
-            text_align="center",
             min_height="85vh",
             id="my-child",
         )

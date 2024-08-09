@@ -108,6 +108,7 @@ def profile_description() -> rx.Component:
                     ),
                     orientation="vertical",
                 ),
+                width="100%",
                 justify="vertical",
             ),
             rx.accordion.item(
