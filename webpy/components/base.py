@@ -1,7 +1,7 @@
 import reflex as rx
 
 from .navbar import navbar
-from .footer import footer
+
 
 def base_layout_componen(child, *args, **kwargs) -> rx.Component:
     return rx.fragment(
@@ -14,7 +14,7 @@ def base_layout_componen(child, *args, **kwargs) -> rx.Component:
             id="content_area",
             z_index="999"
         ),
-        footer(),
+        rx.logo(),
     )
     
 def base_page(child:rx.Component, *args, **kwargs) -> rx.Component:
