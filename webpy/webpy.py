@@ -30,11 +30,19 @@ def index() -> rx.Component:
             rx.text("En este espacio comparto informacion sobre mis proyectos e intereses."),
 
             rx.vstack(
-                rx.image(
-                    src="img/logo_.png",
-                    align="center",
-                    width="250px",
-                    height="auto",
+                rx.color_mode_cond(
+                    light=rx.image(
+                        src="img/inv_.png",
+                        align="center",
+                        width="250px",
+                        height="auto",
+                    ),
+                    dark=rx.image(
+                        src="img/logo_.png",
+                        align="center",
+                        width="250px",
+                        height="auto",
+                    ),
                 ),
                 rx.text(f"©2024 - Mauricio Franco Salazar"),
                 rx.text("Gracias por tu visita 🐸"),

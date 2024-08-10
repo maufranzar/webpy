@@ -54,6 +54,7 @@ def navbar() -> rx.Component:
                             "🔒",
                             size="4",
                             variant="outline",
+                            disabled=True,
                         ),
                     ),
                     spacing="4",
