@@ -1,6 +1,7 @@
 import reflex as rx
 
 from .. import routes
+from .. styles import styles
 
 def navbar_link(text:str, url:str) -> rx.Component:
     return rx.link(
@@ -27,9 +28,9 @@ def navbar() -> rx.Component:
                     ),
                     rx.box(
                         rx.link(
-                            rx.text("mau", as_="span",size="8",weight="bold"),
-                            rx.text("fran", as_="span",size="8",weight="bold"),
-                            rx.text("zar", as_="span",size="8",weight="bold"),
+                            rx.text("mau", as_="span",size="8",weight="bold",style=styles.logo_style),
+                            rx.text("fran", as_="span",size="8",weight="bold",style=styles.logo_style),
+                            rx.text("zar", as_="span",size="8",weight="bold",style=styles.logo_style),
                             href=routes.urls.HOME,
                             underline="none",
                         ),
@@ -75,9 +76,9 @@ def navbar() -> rx.Component:
                     ),
                     rx.box(
                         rx.link(
-                            rx.text("mau", as_="span",size="7",weight="bold"),
-                            rx.text("fran", as_="span",size="7",weight="bold"),
-                            rx.text("zar", as_="span",size="7",weight="bold"),
+                            rx.text("mau", as_="span",size="7",weight="bold",style=styles.logo_style),
+                            rx.text("fran", as_="span",size="7",weight="bold",style=styles.logo_style),
+                            rx.text("zar", as_="span",size="7",weight="bold",style=styles.logo_style),
                             href=routes.urls.HOME,
                         ),
                     ),
@@ -105,7 +106,7 @@ def navbar() -> rx.Component:
             ),    
         ),
         bg=rx.color("accent",3),
-        padding="0.5em",
+        padding="0.8em",
         position="sticky",
         width="100%",
         id="navbar",

@@ -1,5 +1,6 @@
 import reflex as rx
 
+from .styles import styles
 from .components.base import base_page
 from . import routes
 from .pages import profile_page, projects_page, contact_page
@@ -26,8 +27,20 @@ def index() -> rx.Component:
                 ),
                 spacing="5",
             ),
-
             rx.text("En este espacio comparto informacion sobre mis proyectos e intereses."),
+
+            rx.vstack(
+                rx.image(
+                    src="img/logo_.png",
+                    align="center",
+                    width="250px",
+                    height="auto",
+                ),
+                rx.text(f"©2024 - Mauricio Franco Salazar"),
+                rx.text("Gracias por tu visita 🐸"),
+                align_items="center",
+            ),
+            
             spacing="5",
             justify="center",
             align="center",
@@ -37,7 +50,11 @@ def index() -> rx.Component:
     return base_page(my_child)
 
 
-app = rx.App()
+app = rx.App(
+    stylesheets=styles.STYLE_SHEETS,
+    style=styles.BASE_STYLE,
+    
+)
 
 app.add_page(
     index,
