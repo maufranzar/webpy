@@ -7,12 +7,8 @@ from .. import routes
 def projects_page() -> rx.Component:
     my_child = rx.vstack(
             rx.heading("PROYECTOS",size="9"),
-            rx.text(
-                "En contruccion... ",
-            ),
-            rx.link(
-                rx.button("HOME"),
-            ),
+            rx.text("En contruccion... ",),
+            rx.heading("🐍",size="9"),
             spacing="5",
             justify="center",
             align="center",
