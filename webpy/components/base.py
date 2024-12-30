@@ -1,3 +1,5 @@
+# webpy/components/base.py
+
 import reflex as rx
 
 from .navbar import navbar

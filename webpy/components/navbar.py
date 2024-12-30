@@ -1,3 +1,5 @@
+# webpy/components/navbar.py
+
 import reflex as rx
 
 from .. import routes
