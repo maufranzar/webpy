@@ -1,107 +1,93 @@
-# Proyecto de Generación y Análisis de Ondas Musicales
+# Proyecto Web: Mauricio Franco Portfolio
 
-Este proyecto está enfocado en diseñar y entrenar un modelo híbrido CNN+LSTM utilizando PyTorch para analizar y aprender patrones musicales complejos. Incluye la generación de señales musicales (tonos simples, acordes, melodías) y su análisis utilizando espectrogramas.
+Este proyecto es una página web personal desarrollada con el framework Reflex para mostrar los proyectos y habilidades de Mauricio Franco. La página tiene como objetivo aumentar las oportunidades de contratación al presentar resultados y proyectos de manera atractiva y profesional.
 
 ---
 
 ## **Objetivo Principal**
-El objetivo principal es implementar un modelo que combine redes neuronales convolucionales (CNN) y redes neuronales de memoria a largo plazo (LSTM) para extraer características espaciales y temporales de patrones musicales.
+
+Desarrollar un portafolio interactivo y atractivo que destaque las habilidades técnicas, proyectos, y experiencia de Mauricio Franco.
 
 ---
 
 ## **Estructura del Proyecto**
-El proyecto está organizado de la siguiente manera:
 
-### **1. Generación de Datos**
-- **Directorios**: 
-  - `data/` contiene archivos WAV y espectrogramas organizados por carpetas.
-- **Tipos de Señales**: 
-  - Tonos simples
-  - Acordes diatónicos
-  - Melodías
-  - Progresiones armónicas
+### **1. Framework Utilizado**
+- **Reflex**: Framework de Python para construir aplicaciones web de manera eficiente.
+- **Hosting**: Planificado para ser desplegado en un servidor remoto.
 
-### **2. Implementación de Módulos**
-Los módulos incluyen:
-- `base_signal.py`: Clase base para la generación de señales.
-- `sound_signal.py`: Clase para trabajar con señales sonoras simples.
-- `composite_signal.py`: Clase para crear señales compuestas.
-- `rhythm_signal.py`: Clase para implementar señales rítmicas.
-- `utils.py`: Herramientas de apoyo (por ejemplo, visualización y preprocesamiento).
+### **2. Funcionalidades Principales**
+- **Presentación de Proyectos**:
+  - Visualización de los proyectos más destacados.
+  - Detalles técnicos y resultados obtenidos.
+- **Información Personal**:
+  - Resumen de habilidades, experiencia, y educación.
+- **Contacto**:
+  - Formulario de contacto integrado.
 
-### **3. Arquitectura del Modelo CNN+LSTM**
-- **Capas Convolucionales (CNN)**: Para extracción de características espaciales.
-- **Capas LSTM**: Para aprendizaje de dependencias temporales.
-- **Capa Totalmente Conectada**: Para clasificación.
+### **3. Estructura de Archivos**
+- **Directorio Principal**: Contiene el código fuente de la aplicación.
+- **Componentes**: Sección modular para cada parte de la página (proyectos, habilidades, contacto).
+- **Estilos**: Archivos CSS o configuraciones de estilo de Reflex.
+- **Configuración**: Archivo `config.py` para parámetros globales de la aplicación.
 
-### **4. Preprocesamiento y Carga de Datos**
-- **Dataset Personalizado**: 
-  - Clase `AudioDataset` para cargar espectrogramas organizados por carpetas.
-- **Transformaciones**: 
-  - Redimensionamiento, normalización y conversión a tensores.
-- **DataLoader**: 
-  - División en conjuntos de entrenamiento (80%) y validación (20%).
-
-### **5. Entrenamiento y Evaluación del Modelo**
-- **Función de Entrenamiento**: 
-  - `train_model`: Ejecuta el ciclo de entrenamiento y validación.
-- **Optimización**: 
-  - Uso de `CrossEntropyLoss` como función de pérdida y `Adam` como optimizador.
-- **Métricas**: 
-  - Seguimiento de pérdida y precisión por época.
+### **4. Planificación del Despliegue**
+- **Dominio**: `mauranzar.com`.
+- **Servidor Remoto**: Configuración en proceso para el despliegue final.
 
 ---
 
-## **Uso del Proyecto**
-
-### **Requisitos Previos**
+## **Requisitos Previos**
 - Python 3.8+
-- PyTorch 1.10+
-- Librerías adicionales: `torchvision`, `numpy`, `matplotlib`, `torchsummary`, `torchviz`.
+- Reflex instalado
 
-### **Instalación**
+### **Instalación de Reflex**
+```bash
+pip install reflex
+```
+
+---
+
+## **Ejecución del Proyecto**
+
+### **Desarrollo Local**
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/tuusuario/proyecto-musical.git
-   cd proyecto-musical
+   git clone https://github.com/tuusuario/mauranzar-web.git
+   cd mauranzar-web
    ```
 2. Instala los requisitos:
    ```bash
    pip install -r requirements.txt
    ```
-
-### **Ejecución**
-1. Genera datos:
+3. Inicia la aplicación:
    ```bash
-   python generate_data.py
+   reflex run
    ```
-2. Entrena el modelo:
+4. Abre la aplicación en tu navegador:
+   ```
+   http://localhost:3000
+   ```
+
+### **Despliegue en Producción**
+1. Genera la aplicación estática:
    ```bash
-   python train_model.py
+   reflex export
    ```
-3. Visualiza resultados:
-   - Diagrama del modelo: Utiliza `torchviz`.
-   - Arquitectura resumida: Usa `torchsummary`.
-
----
-
-## **Resultados Esperados**
-- Un modelo entrenado capaz de analizar patrones musicales complejos.
-- Espectrogramas y gráficos que visualicen las características extraídas.
-- Métricas como precisión y pérdida a lo largo del entrenamiento.
+2. Sube los archivos generados al servidor remoto.
 
 ---
 
 ## **Plan Futuro**
-1. Culminar la etapa de entrenamiento y evaluación del modelo.
-2. Documentar el proyecto completo.
-3. Explorar aplicaciones prácticas, como transcripción musical y asistentes de composición.
+1. Mejorar el diseño visual.
+2. Integrar análisis de tráfico web.
+3. Añadir una sección para publicaciones o blogs.
 
 ---
 
 ## **Notas Adicionales**
-- Algunos problemas con archivos sin sonido podrían estar relacionados con la carga de procesamiento paralela durante la generación de datos o el entrenamiento.
-- Asegúrate de tener suficientes recursos computacionales para evitar interrupciones.
+- Reflex permite realizar cambios rápidos y verlos reflejados en tiempo real.
+- Asegúrate de configurar correctamente el dominio para el despliegue final.
 
 ---
 
@@ -112,5 +98,5 @@ Este proyecto se encuentra bajo la licencia MIT. Para más detalles, consulta el
 
 ## **Contacto**
 Mauricio Franco  
-[Tu Sitio Web](http://mauranzar.com)  
+[Portafolio Web](http://mauranzar.com)  
 Correo: mauricio@example.com
