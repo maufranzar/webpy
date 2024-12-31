@@ -1,9 +1,9 @@
 @font-face{
     font-family: 'BioRhyme';
-    src: url("BioRhyme.ttf") format("openType");
+    src: url("https://fonts.googleapis.com/css2?family=BioRhyme:wght@200..800&display=swap") format("openType");
 }
 
 @font-face{
     font-family: 'Comfortaa';
-    src: url("Comfortaa.ttf") format("openType");
+    src: url("https://fonts.googleapis.com/css2?family=BioRhyme:wght@200..800&family=Comfortaa:wght@300..700&display=swap") format("openType");
 }

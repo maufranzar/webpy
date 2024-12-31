@@ -7,7 +7,8 @@ from .components.base import base_page
 from . import routes
 from .pages import profile_page, projects_page, contact_page
 
-# Index Page
+
+#animation test
 wave: dict = {
     "@keyframes wave": {
         "0%": {"transform": "rotate(-15deg)"},
@@ -15,6 +16,7 @@ wave: dict = {
     }
 }
 
+# Index Page
 def index() -> rx.Component:
     # Welcome Page (Index)
     my_child = rx.vstack(
@@ -29,8 +31,8 @@ def index() -> rx.Component:
                 ),
                 spacing="5",
             ),
-            rx.text("En este espacio comparto informacion sobre mis proyectos e intereses."),
-
+            rx.text("Hola! En este espacio comparto información sobre mis proyectos. Bienvenid@!"),
+            rx.text("(esta es una web estática)",size="1"),
             rx.vstack(
                 rx.color_mode_cond(
                     light=rx.image(
@@ -46,9 +48,11 @@ def index() -> rx.Component:
                         height="auto",
                     ),
                 ),
-                rx.text(f"©2024 - Mauricio Franco Salazar"),
+                rx.text(f"©2025 - maufranzar.com"),
                 rx.text("Gracias por tu visita 🐸"),
                 align_items="center",
+
+                
             ),
             
             spacing="5",
@@ -62,14 +66,13 @@ def index() -> rx.Component:
 
 app = rx.App(
     stylesheets=styles.STYLE_SHEETS,
-    style=styles.BASE_STYLE,
-    
-)
+    style=styles.BASE_STYLE
+    )
 
 app.add_page(
     index,
     title="maufranzar",
-    description="web personal de maufranzar",
+    description="porfolio maufranzar.com",
     image="/img/logo.ico"
 )
 

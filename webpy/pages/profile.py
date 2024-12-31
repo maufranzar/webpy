@@ -1,24 +1,16 @@
-# webpy/pages/profile.py
-
 import reflex as rx
-
 from ..components.base import base_page
 from .. import routes
 
-import reflex as rx
 
-    
-def link_icon(image:str, url:str) -> rx.Component:
+def link_icon(image: str, url: str) -> rx.Component:
     return rx.link(
-        rx.icon(
-            image,
-            size=30,
-        ),
+        rx.icon(image, size=30),
         href=url,
         is_external=True
     )
-    
-       
+
+
 def profile_content() -> rx.Component:
     return rx.vstack(
         rx.hstack(
@@ -34,59 +26,57 @@ def profile_content() -> rx.Component:
                 rx.badge(
                     rx.icon("fingerprint", size=15),
                     rx.text("maufranzar", size="2"),
-                    spacing="1"    
+                    spacing="1"
                 ),
                 rx.hstack(
                     rx.flex(
-                        link_icon(
-                            "github",
-                            routes.urls.GITHUB,
-                        ),
-                        link_icon(
-                            "linkedin",
-                            routes.urls.LINKEDIN,
-                        ),
-                        link_icon(
-                            "twitter",
-                            routes.urls.TWITTER,
-                        ),
-                        link_icon(
-                            "headphones",
-                            routes.urls.SPOTIFY,
-                        ),
+                        link_icon("github", routes.urls.GITHUB),
+                        link_icon("linkedin", routes.urls.LINKEDIN),
+                        link_icon("twitter", routes.urls.TWITTER),
+                        link_icon("headphones", routes.urls.SPOTIFY),
                         spacing="7",
                     )
                 )
             ),
             spacing="6",
         ),
-        rx.divider(
-            height="2px",
-            border_radius="2px"
-        ),
+        rx.divider(height="2px", border_radius="2px"),
         spacing="4",
     )
-    
+
+
 def profile_description() -> rx.Component:
     return rx.container(
         rx.accordion.root(
+            # 1. PERFIL PROFESIONAL
             rx.accordion.item(
-                header=rx.heading("Perfil", size="4"),
+                header=rx.heading("Perfil Profesional", size="4"),
                 content=rx.container(
-                    rx.text("Soy Bachiller en Ingeniería Electrónica, me apaciona la tecnogía y el poder que tiene para mejorar nuestras vidas. Sin embargo, el acceso a esta no es igual para todos, me movita poder contribuir a reducir tal brecha.",align="justify"),
-                    rx.text("Actualmente estoy enfocado en tecnologías emergentes el IoT, Data Analysis e Inteligencia Artificial. Me caracteriza la proactividad, la capacidad de adaptación y la comunicación, estoy familiarizado con entornos de desarrollo en Linux, con el uso de frameworks como; Docker, Git, Anaconda, tengo experiencia programando en Python con librerías como Numpy, Scipy, Pandas, Seaborn, Scikit-learn, Pytorch, FastAPI",align="justify"),
+                        rx.box(
+                        rx.text(
+                            "Soy Bachiller en Ingeniería Electrónica, me apasiona la tecnología y el poder que tiene para mejorar nuestras vidas. Sin embargo, el acceso a esta no es igual para todos. Me motiva poder contribuir a reducir tal brecha.",
+                                style={"text-align": "justify"}
+                            ),
+                        ),
+                        rx.box(
+                            rx.text(
+                                "Actualmente, me encuentro efocado en tecnologías emergentes como IoT, BigData e IA. Te invito a que puedas ver el proyecto que expongo aquí",
+                                style={"text-align": "justify"}
+                                ),
+                            ),
                     justify="between",
                     spacing="4",
-                    ),
-                ),
+                      ),
+            ),
+            # 2. FORMACIÓN ACADÉMICA
             rx.accordion.item(
-                header=rx.heading("Formación", size="4"),
+                header=rx.heading("Formación Académica", size="4"),
                 content=rx.vstack(
                     rx.card(
                         rx.flex(
                             rx.box(
-                                rx.heading("Universidad Ricardo Palma",size="5"),
-                                rx.text("Ingeniería Electrónica",size="3"),
+                                rx.heading("Universidad Ricardo Palma", size="5"),
+                                rx.text("Ingeniería Electrónica", size="3"),
                             ),
                             spacing="2",
                             width="100%",
@@ -97,10 +87,10 @@ def profile_description() -> rx.Component:
                     rx.card(
                         rx.flex(
                             rx.box(
-                                rx.heading("Platzi",size="5"),
-                                rx.text("Fundamentos de Servidores Linux",size="3"),
-                                rx.text("Análisis y Manipulacion de Datos con Python",size="3"),
-                                rx.text("Machine Learning con Python",size="3"),
+                                rx.heading("Platzi", size="5"),
+                                rx.text("Fundamentos de Servidores Linux", size="3"),
+                                rx.text("Análisis y Manipulación de Datos con Python", size="3"),
+                                rx.text("Machine Learning con Python", size="3"),
                             ),
                             spacing="2",
                             width="100%",
@@ -114,13 +104,75 @@ def profile_description() -> rx.Component:
                 width="100%",
                 justify="vertical",
             ),
-            rx.accordion.item(
-                header=rx.heading("Experiencia", size="4"),
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            ),
+            
+            # 4. CERTIFICACIONES
             rx.accordion.item(
                 header=rx.heading("Certificaciones", size="4"),
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                content=rx.vstack(
+                    rx.card(
+                        rx.flex(
+                            rx.box(
+                                rx.heading("Universidad Ricardo Palma", size="5"),
+                                rx.unordered_list(
+                                    rx.list_item(
+                                        "Inglés Profesional Intermedio",
+                                        style={"font-size": "14px"}
+                                    ),
+                                ),
+                            ),
+                            spacing="2",
+                            width="100%",
+                        ),
+                        as_child=True,
+                        width="100%",
+                    ),
+                    rx.card(
+                        rx.flex(
+                            rx.box(
+                                rx.heading("Platzi Links", size="5"),
+                                rx.unordered_list(
+                                    rx.list_item(
+                                        rx.link(
+                                            "Fundamentos de Servidores Linux",
+                                            href=routes.urls.PLAT_LINUX,
+                                            is_external=True,
+                                        ),
+                                        style={"font-size": "14px"},
+                                    ),
+                                    rx.list_item(
+                                        rx.link(
+                                            "Análisis, Manipulación y Visualización de Datos con Python",
+                                            href=routes.urls.PLAT_DATOS,
+                                            is_external=True,
+                                        ),
+                                        style={"font-size": "14px"},
+                                    ),
+                                    rx.list_item(
+                                        rx.link(
+                                            "Machine Learning con Python",
+                                            href=routes.urls.PLAT_ML,
+                                            is_external=True,
+                                        ),
+                                        style={"font-size": "14px"},
+                                    ),
+                                    rx.list_item(
+                                        rx.link(
+                                            "Data e IA",
+                                            href=routes.urls.PLAT_IA,
+                                            is_external=True,
+                                        ),
+                                    ),  style={"font-size": "14px"},
+                                ),
+                            ),
+                            spacing="2",
+                            width="100%",
+                        ),
+                        as_child=True,
+                        width="100%",
+                    ),
+                    orientation="vertical",
+                    spacing="4",
+                ),
             ),
             collapse=True,
             orientation="vertical",
@@ -130,19 +182,17 @@ def profile_description() -> rx.Component:
         )
     )
 
+
 @rx.page(route=routes.urls.PROFILE)
 def profile_page() -> rx.Component:
-
     my_child = rx.container(
         rx.vstack(
-        profile_content(),
-        profile_description(),
-        spacing="5",
-        #justify="center",
-        align="center",
-        min_height="85vh",
-        id="my-child",
+            profile_content(),
+            profile_description(),
+            spacing="5",
+            align="center",
+            min_height="85vh",
+            id="my-child",
         )
     )
-    return base_page(my_child)      
-    
+    return base_page(my_child)
